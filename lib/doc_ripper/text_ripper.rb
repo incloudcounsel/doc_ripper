@@ -5,7 +5,7 @@ module DocRipper
     attr_reader :text_file_path, :file_path
 
     def rip
-      @is_ripped ||=choose_ripper
+      @is_ripped ||= choose_ripper
     end
 
     def text
@@ -22,6 +22,8 @@ module DocRipper
         MsDocRipper.new(@file_path).rip
       when !!(@file_path[-4..-1]  =~ /.pdf/i)
         PdfRipper.new(@file_path).rip
+      when !!(@file_path[-4..-1]  =~ /.txt/i)
+        true
       when @options[:raise]
         raise UnsupportedFileType
       end
