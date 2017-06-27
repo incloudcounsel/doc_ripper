@@ -4,3 +4,4 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'nokogiri'
+gem 'xpdf', git: 'https://github.com/josh/ruby-xpdf'
